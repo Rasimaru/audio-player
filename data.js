@@ -15,6 +15,6 @@ let songs = [
         name: 'Atlantis',
         path: "./assets/songs/Marvel83' - Atlantis.mp3",
         artist: "Marvel83'",
-        cover: './assets/img/atlantis.jpeg.jpg'
+        cover: './assets/img/atlantis.jpeg'
     },
 ]

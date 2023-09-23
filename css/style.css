@@ -23,7 +23,7 @@ main{
 
 .player {
   padding: 1rem;
-  max-width: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +31,6 @@ main{
   position: absolute;
   top: 5%;
   left: 5%;
-  /* transform: translate(-50%, -50%); */
   background: rgba(153, 87, 184, 0.5);
   color: #fff;
   border-radius: 1rem;
@@ -124,14 +123,7 @@ main{
   background: url('../assets/icons/backward-step-solid.svg') 50% 50% no-repeat;
 }
 
-._pause {
-  transition: background 0.35s 0s;
-  background: url('../assets/icons/circle-pause-solid_white.svg') 50% 50%  no-repeat;
-}
 
-._pause:hover{
-  background: url('../assets/icons/circle-pause-solid.svg') 50% 50%  no-repeat;
-}
 
 .controls__play {
   transition: background 0.35s 0s;
@@ -202,6 +194,29 @@ footer {
   font-size: 125%; /* 20/16 */
 }
 
+@media (max-width: 767.97px){
+  .player{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 399.97px) {
+  .footer__container{
+    font-size: 100%;
+  }
+}
+
 ._hidden{
   opacity: 0;
+}
+
+._pause {
+  transition: background 0.35s 0s;
+  background: url('../assets/icons/circle-pause-solid_white.svg') 50% 50%  no-repeat;
+}
+
+._pause:hover{
+  background: url('../assets/icons/circle-pause-solid.svg') 50% 50%  no-repeat;
 }
