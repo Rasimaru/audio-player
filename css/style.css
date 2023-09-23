@@ -51,7 +51,6 @@ main{
 ._ibg img{
   width: 100%;
   min-height: 100%;
-  /* position: absolute; */
   z-index: 2;
   top:0;
   left:0;
@@ -64,11 +63,10 @@ main{
   row-gap: 0.5rem;
   align-self: start;
 }
+
 .player__info:not(:last-child) {
   margin-bottom: 1rem;
 }
-.player__name {}
-.player__artist {}
 
 .player__progress {
   width: 100%;
@@ -78,6 +76,7 @@ main{
   flex-wrap: wrap;
   row-gap: 0.5rem;
 }
+
 .player__bar {
   flex: 0 0 100%;
   appearance: none;
@@ -89,7 +88,9 @@ main{
   border: 1.5px solid #fff;
   border-radius: 8px;
   overflow: hidden;
+  cursor: pointer;
 }
+
 .player__bar::-webkit-slider-thumb{
   appearance: none;
   height: 12px;
@@ -103,7 +104,6 @@ main{
   margin-bottom: 2.5rem;
 }
 
-.player__controls {}
 .controls {
   width: 100%;
   position: relative;
@@ -112,6 +112,7 @@ main{
   justify-content: center;
   column-gap: 1rem;
 }
+
 .controls__prev {
   transition: background 0.35s 0s;
   width: 1.5rem;
@@ -119,21 +120,11 @@ main{
   background: url('../assets/icons/backward-step-solid_white.svg') 50% 50% no-repeat;
 }
 
-.controls__prev:hover{
-  background: url('../assets/icons/backward-step-solid.svg') 50% 50% no-repeat;
-}
-
-
-
 .controls__play {
   transition: background 0.35s 0s;
   width: 2rem;
   height: 2rem;
   background: url('../assets/icons/circle-play-solid_white.svg') 50% 50% no-repeat;
-}
-
-.controls__play:hover {
-  background: url('../assets/icons/circle-play-solid.svg') 50% 50% no-repeat;
 }
 
 .controls__next {
@@ -143,10 +134,6 @@ main{
   background: url('../assets/icons/forward-step-solid_white.svg') 50% 50%  no-repeat;
 }
 
-.controls__next:hover{
-  background: url('../assets/icons/forward-step-solid.svg') 50% 50% no-repeat;
-}
-
 .controls__volume {
   position: absolute;
   right: 0;
@@ -154,9 +141,6 @@ main{
   width: 1.5rem;
   height: 1.5rem;
   background: url('../assets/icons/volume-high-solid_white.svg') 50% 50%  no-repeat;
-}
-.controls__volume:hover{
-  background: url('../assets/icons/volume-high-solid.svg') 50% 50%  no-repeat;
 }
 
 #volume-bar{
@@ -170,6 +154,7 @@ main{
   border-radius: 20px;
   overflow: hidden;
   border: 1.5px solid rgb(85, 4, 122);
+  cursor: pointer;
 }
 
 #volume-bar::-webkit-slider-thumb{
@@ -178,6 +163,7 @@ main{
   height: 10px;
   background: rgb(85, 4, 122);
   box-shadow: -85px 0 0px 85px rgb(85, 4, 122);
+  cursor: pointer;
 }
 
 footer {
@@ -193,6 +179,11 @@ footer {
   justify-content: space-around;
   font-size: 125%; /* 20/16 */
 }
+
+.footer__container > a{
+  transition: color 0.35s;
+}
+
 
 @media (max-width: 767.97px){
   .player{
@@ -217,6 +208,24 @@ footer {
   background: url('../assets/icons/circle-pause-solid_white.svg') 50% 50%  no-repeat;
 }
 
-._pause:hover{
-  background: url('../assets/icons/circle-pause-solid.svg') 50% 50%  no-repeat;
+@media (hover: hover) {
+  .controls__prev:hover{
+    background: url('../assets/icons/backward-step-solid.svg') 50% 50% no-repeat;
+  }
+  .controls__play:hover {
+    background: url('../assets/icons/circle-play-solid.svg') 50% 50% no-repeat;
+  }
+  .controls__next:hover{
+    background: url('../assets/icons/forward-step-solid.svg') 50% 50% no-repeat;
+  }
+  .controls__volume:hover{
+    background: url('../assets/icons/volume-high-solid.svg') 50% 50%  no-repeat;
+  }
+  ._pause:hover{
+    background: url('../assets/icons/circle-pause-solid.svg') 50% 50%  no-repeat;
+  }
+  .footer__container > a:hover{
+    color:rgb(85, 4, 122);
+  }
+
 }

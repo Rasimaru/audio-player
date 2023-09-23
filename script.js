@@ -1,5 +1,8 @@
 
 let currentSong = 0;
+window.addEventListener('load', () => {
+  setSong(currentSong);
+})
 
 const audio = document.querySelector('#audio');
 const progressBar = document.querySelector('.player__bar');
@@ -14,20 +17,6 @@ const playBtn = document.querySelector('.controls__play');
 const nextBtn = document.querySelector('.controls__next');
 const volumeBtn = document.querySelector('.controls__volume');
 const volumeBar = document.querySelector('.controls__volume-bar');
-
-playBtn.addEventListener('click', ()=>{
-  if(playBtn.classList.contains('_pause')){
-    playBtn.classList.remove('_pause');
-    audio.pause();
-  } else{
-    playBtn.classList.add('_pause');
-    audio.play();
-  }
-})
-
-volumeBtn.addEventListener('click', ()=>{
-  volumeBar.classList.remove('_hidden');
-})
 
 const setSong = (i) => {
   progressBar.value = 0;
@@ -46,10 +35,18 @@ const setSong = (i) => {
   setInterval(() => {
     progressBar.value = audio.currentTime;
     songTime.innerHTML = formatTime(audio.currentTime);
-  }, 500);
+  }, 1000);
 }
 
-setSong(0);
+audio.addEventListener('ended', () => {
+  if(currentSong >= songs.length - 1){
+    currentSong = 0;
+  } else {
+    currentSong++;
+  }
+  setSong(currentSong);
+  audio.play();
+})
 
 progressBar.addEventListener('change', ()=>{
   audio.currentTime = progressBar.value;
@@ -77,14 +74,28 @@ prevBtn.addEventListener('click', () => {
   audio.play();
 })
 
+playBtn.addEventListener('click', ()=>{
+  setSong(currentSong);
+  if(playBtn.classList.contains('_pause')){
+    playBtn.classList.remove('_pause');
+    audio.pause();
+  } else{
+    audio.play();
+    playBtn.classList.add('_pause');
+  }
+})
 
+volumeBtn.addEventListener('click', ()=>{
+  volumeBar.classList.toggle('_hidden');
+})
 
-
-
-
-
-
-
+volumeBar.addEventListener('change', () => {
+  audio.volume = volumeBar.value;
+  setTimeout(() => {
+    volumeBar.classList.toggle('_hidden');
+  }, 1000);
+  
+})
 
 function formatTime (time){
   let min = Math.floor(time / 60);
