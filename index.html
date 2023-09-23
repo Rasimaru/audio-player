@@ -7,6 +7,33 @@
     <title>Audio player</title>
   </head>
   <body>
-
+    <div class="wrapper">
+      <video id="background-video" autoplay loop muted poster="./assets/background/back.png">
+        <source src="./assets/background/synthwave-car-in-neon-track.1920x1080.mp4" type="video/mp4">
+      </video>
+      <main>
+        <div class="player">
+          <div class="player__picture _ibg">
+            <img src="./assets/img/Synthetic Nights.jpg" alt="song-cover" class="player__image">
+          </div>
+          <div class="player__info">
+            <div class="player__name">Synthetic Nights</div>
+            <div class="player__artist">Marvel83'</div>
+          </div>
+          <div class="player__controls controls">
+            <button class="controls__prev" type="button"></button>
+            <button class="controls__play _pause" type="button"></button>
+            <button class="controls__next" type="button"></button>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__year">2023</div>
+          <a href="https://rs.school/js-stage0/" class="footer__school">The Rolling Scopes School</a>
+          <a href="https://github.com/Rasimaru" class="footer__student">Rasimaru</a>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
