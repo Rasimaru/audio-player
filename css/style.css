@@ -32,7 +32,7 @@ main{
   top: 5%;
   left: 5%;
   /* transform: translate(-50%, -50%); */
-  background: rgba(212, 64, 64, 0.5);
+  background: rgba(153, 87, 184, 0.5);
   color: #fff;
   border-radius: 1rem;
 }
@@ -70,8 +70,44 @@ main{
 }
 .player__name {}
 .player__artist {}
+
+.player__progress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}
+.player__bar {
+  flex: 0 0 100%;
+  appearance: none;
+  width: 100%;
+  position: relative;
+  left: 0;
+  height: 0.5rem;
+  background: rgb(85, 4, 122);
+  border: 1.5px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.player__bar::-webkit-slider-thumb{
+  appearance: none;
+  height: 12px;
+  width: 8px;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: -300px 0px 0px 300px #fff;
+}
+
+.player__progress:not(:last-child){
+  margin-bottom: 2.5rem;
+}
+
 .player__controls {}
 .controls {
+  width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,42 +117,75 @@ main{
   transition: background 0.35s 0s;
   width: 1.5rem;
   height: 1.5rem;
-  background: url('../assets/icons/backward-step-solid.svg') 50% 50% no-repeat;
+  background: url('../assets/icons/backward-step-solid_white.svg') 50% 50% no-repeat;
 }
 
 .controls__prev:hover{
-  background: url('../assets/icons/backward-step-solid_white.svg') 50% 50% no-repeat;
+  background: url('../assets/icons/backward-step-solid.svg') 50% 50% no-repeat;
 }
 
 ._pause {
   transition: background 0.35s 0s;
-  background: url('../assets/icons/circle-pause-solid.svg') 50% 50%  no-repeat;
+  background: url('../assets/icons/circle-pause-solid_white.svg') 50% 50%  no-repeat;
 }
 
 ._pause:hover{
-  background: url('../assets/icons/circle-pause-solid_white.svg') 50% 50%  no-repeat;
+  background: url('../assets/icons/circle-pause-solid.svg') 50% 50%  no-repeat;
 }
 
 .controls__play {
   transition: background 0.35s 0s;
   width: 2rem;
   height: 2rem;
-  background: url('../assets/icons/circle-play-solid.svg') 50% 50% no-repeat;
+  background: url('../assets/icons/circle-play-solid_white.svg') 50% 50% no-repeat;
 }
 
 .controls__play:hover {
-  background: url('../assets/icons/circle-play-solid_white.svg') 50% 50% no-repeat;
+  background: url('../assets/icons/circle-play-solid.svg') 50% 50% no-repeat;
 }
 
 .controls__next {
   transition: background 0.35s 0s;
   width: 1.5rem;
   height: 1.5rem;
-  background: url('../assets/icons/forward-step-solid.svg') 50% 50%  no-repeat;
+  background: url('../assets/icons/forward-step-solid_white.svg') 50% 50%  no-repeat;
 }
 
 .controls__next:hover{
-  background: url('../assets/icons/forward-step-solid_white.svg') 50% 50% no-repeat;
+  background: url('../assets/icons/forward-step-solid.svg') 50% 50% no-repeat;
+}
+
+.controls__volume {
+  position: absolute;
+  right: 0;
+  transition: background 0.35s 0s;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url('../assets/icons/volume-high-solid_white.svg') 50% 50%  no-repeat;
+}
+.controls__volume:hover{
+  background: url('../assets/icons/volume-high-solid.svg') 50% 50%  no-repeat;
+}
+
+#volume-bar{
+  appearance: none;
+  width: 60px;
+  height: 10px;
+  position: absolute;
+  right: -15px;
+  bottom: 60px;
+  transform: rotate(-90deg);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid rgb(85, 4, 122);
+}
+
+#volume-bar::-webkit-slider-thumb{
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: rgb(85, 4, 122);
+  box-shadow: -85px 0 0px 85px rgb(85, 4, 122);
 }
 
 footer {
@@ -131,4 +200,8 @@ footer {
   align-items: center;
   justify-content: space-around;
   font-size: 125%; /* 20/16 */
+}
+
+._hidden{
+  opacity: 0;
 }
