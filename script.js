@@ -34,7 +34,7 @@ const setSong = (i) => {
   
   setInterval(() => {
     progressBar.value = audio.currentTime;
-    songTime.innerHTML = formatTime(audio.currentTime);
+    songTime.innerHTML  = formatTime(audio.currentTime);
   }, 1000);
 }
 
