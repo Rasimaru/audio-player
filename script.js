@@ -1,8 +1,5 @@
 
 let currentSong = 0;
-window.addEventListener('load', () => {
-  setSong(currentSong);
-})
 
 const audio = document.querySelector('#audio');
 const progressBar = document.querySelector('.player__bar');
@@ -37,6 +34,11 @@ const setSong = (i) => {
     songTime.innerHTML  = formatTime(audio.currentTime);
   }, 1000);
 }
+
+window.addEventListener('load', () => {
+  setSong(currentSong);
+})
+
 
 audio.addEventListener('ended', () => {
   if(currentSong >= songs.length - 1){
