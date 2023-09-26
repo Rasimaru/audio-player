@@ -23,7 +23,7 @@ const setSong = (i) => {
   songName.innerHTML = song.name;
   songArtist.innerHTML = song.artist;
   songCover.src = song.cover;
-
+  audio.load();
   setTimeout(() => {
     progressBar.max = audio.duration;
     songDuration.innerHTML = formatTime(audio.duration);
@@ -35,7 +35,6 @@ const setSong = (i) => {
 }
 
 window.addEventListener('load', () => {
-  audio.load();
   setTimeout(() => {
     setSong(currentSong);
   }, 500);
