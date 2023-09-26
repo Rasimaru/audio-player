@@ -25,18 +25,20 @@ const setSong = (i) => {
   songCover.src = song.cover;
 
   setTimeout(() => {
-    progressBar.max = audio.duration
+    progressBar.max = audio.duration;
     songDuration.innerHTML = formatTime(audio.duration);
   }, 300);
   
   setInterval(() => {
-    progressBar.value = audio.currentTime;
+    // progressBar.value = audio.currentTime;
     songTime.innerHTML  = formatTime(audio.currentTime);
   }, 1000);
 }
 
 window.addEventListener('load', () => {
-  setSong(currentSong);
+  setTimeout(() => {
+    setSong(currentSong);
+  }, 500);
 })
 
 
