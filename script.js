@@ -23,7 +23,7 @@ const setSong = (i) => {
   songName.innerHTML = song.name;
   songArtist.innerHTML = song.artist;
   songCover.src = song.cover;
-  audio.load();
+
   setTimeout(() => {
     progressBar.max = audio.duration;
     songDuration.innerHTML = formatTime(audio.duration);
@@ -40,19 +40,32 @@ window.addEventListener('load', () => {
   }, 500);
 })
 
-
-audio.addEventListener('ended', () => {
-  if(currentSong >= songs.length - 1){
-    currentSong = 0;
-  } else {
-    currentSong++;
-  }
-  setSong(currentSong);
-  audio.play();
-})
-
 progressBar.addEventListener('change', ()=>{
   audio.currentTime = progressBar.value;
+})
+
+
+
+let playing = true;
+
+function playPause() {
+  if (playing) {
+    audio.play();
+    playing = false;
+  } else {
+    song.pause();
+    playing = true;
+  }
+}
+
+playBtn.addEventListener('click', ()=>{
+  setSong(currentSong);
+  playPause();
+  if(playBtn.classList.contains('_pause')){
+    playBtn.classList.remove('_pause');
+  } else{
+    playBtn.classList.add('_pause');
+  }
 })
 
 nextBtn.addEventListener('click', () => {
@@ -63,7 +76,8 @@ nextBtn.addEventListener('click', () => {
   }
   setSong(currentSong);
   playBtn.classList.add('_pause');
-  audio.play();
+  playing = true;
+  playPause();
 })
 
 prevBtn.addEventListener('click', () => {
@@ -74,18 +88,20 @@ prevBtn.addEventListener('click', () => {
   }
   setSong(currentSong);
   playBtn.classList.add('_pause');
-  audio.play();
+  playing = true;
+  playPause();
 })
 
-playBtn.addEventListener('click', ()=>{
-  setSong(currentSong);
-  if(playBtn.classList.contains('_pause')){
-    playBtn.classList.remove('_pause');
-    audio.pause();
-  } else{
-    audio.play();
-    playBtn.classList.add('_pause');
+
+audio.addEventListener('ended', () => {
+  if(currentSong >= songs.length - 1){
+    currentSong = 0;
+  } else {
+    currentSong++;
   }
+  setSong(currentSong);
+  playing = true;
+  playPause();
 })
 
 volumeBtn.addEventListener('click', ()=>{
