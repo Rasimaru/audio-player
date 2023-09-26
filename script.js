@@ -23,10 +23,10 @@ const setSong = (i) => {
   songName.innerHTML = song.name;
   songArtist.innerHTML = song.artist;
   songCover.src = song.cover;
-
+  songDuration.innerHTML = song.duration;
   setTimeout(() => {
     progressBar.max = audio.duration;
-    songDuration.innerHTML = formatTime(audio.duration);
+    // songDuration.innerHTML = formatTime(audio.duration);
   }, 300);
   
   setInterval(() => {
