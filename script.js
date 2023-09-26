@@ -60,11 +60,12 @@ function playPause() {
 
 playBtn.addEventListener('click', ()=>{
   setSong(currentSong);
-  playPause();
   if(playBtn.classList.contains('_pause')){
     playBtn.classList.remove('_pause');
+    audio.pause();
   } else{
     playBtn.classList.add('_pause');
+    audio.play();
   }
 })
 
