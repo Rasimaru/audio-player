@@ -30,12 +30,12 @@ const setSong = (i) => {
   }, 300);
   
   setInterval(() => {
-    // progressBar.value = audio.currentTime;
     songTime.innerHTML  = formatTime(audio.currentTime);
   }, 1000);
 }
 
 window.addEventListener('load', () => {
+  audio.load();
   setTimeout(() => {
     setSong(currentSong);
   }, 500);
