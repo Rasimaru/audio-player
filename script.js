@@ -26,11 +26,11 @@ const setSong = (i) => {
   songDuration.innerHTML = song.duration;
   setTimeout(() => {
     progressBar.max = audio.duration;
-    // songDuration.innerHTML = formatTime(audio.duration);
   }, 300);
   
   setInterval(() => {
     songTime.innerHTML  = formatTime(audio.currentTime);
+    progressBar.value = audio.currentTime;
   }, 1000);
 }
 
@@ -40,9 +40,13 @@ window.addEventListener('load', () => {
   }, 500);
 })
 
-progressBar.addEventListener('change', ()=>{
+progressBar.addEventListener('input', ()=>{
   audio.currentTime = progressBar.value;
+  // setInterval(() => {
+  //   progressBar.value = audio.currentTime;
+  // }, 1000);
 })
+
 
 
 
