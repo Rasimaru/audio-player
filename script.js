@@ -26,11 +26,11 @@ const setSong = (i) => {
   songDuration.innerHTML = song.duration;
   setTimeout(() => {
     progressBar.max = audio.duration;
-    // songDuration.innerHTML = formatTime(audio.duration);
   }, 300);
   
   setInterval(() => {
     songTime.innerHTML  = formatTime(audio.currentTime);
+    progressBar.value = audio.currentTime;
   }, 1000);
 }
 
@@ -59,7 +59,6 @@ function playPause() {
 }
 
 playBtn.addEventListener('click', ()=>{
-  setSong(currentSong);
   if(playBtn.classList.contains('_pause')){
     playBtn.classList.remove('_pause');
     audio.pause();
