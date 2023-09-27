@@ -1,0 +1,231 @@
+@import url('nullstyle.css');
+
+.wrapper{
+  min-height: 100%;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  flex: 1 0 100%;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.player {
+  padding: 1rem;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  background: rgba(153, 87, 184, 0.5);
+  color: #fff;
+  border-radius: 1rem;
+}
+
+.player__picture:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.player__image {
+  border-radius: 1rem;
+}
+
+._ibg{
+  position: relative;
+}
+
+._ibg img{
+  width: 100%;
+  min-height: 100%;
+  z-index: 2;
+  top:0;
+  left:0;
+  object-fit: cover;
+}
+
+.player__info{
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  align-self: start;
+}
+
+.player__info:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.player__progress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}
+
+.player__bar {
+  flex: 0 0 100%;
+  appearance: none;
+  width: 100%;
+  position: relative;
+  left: 0;
+  height: 0.5rem;
+  background: rgb(85, 4, 122);
+  border: 1.5px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.player__bar::-webkit-slider-thumb{
+  appearance: none;
+  height: 12px;
+  width: 8px;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: -300px 0px 0px 300px #fff;
+}
+
+.player__progress:not(:last-child){
+  margin-bottom: 2.5rem;
+}
+
+.controls {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+}
+
+.controls__prev {
+  transition: background 0.35s 0s;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url('../assets/icons/backward-step-solid_white.svg') 50% 50% no-repeat;
+}
+
+.controls__play {
+  transition: background 0.35s 0s;
+  width: 2rem;
+  height: 2rem;
+  background: url('../assets/icons/circle-play-solid_white.svg') 50% 50% no-repeat;
+}
+
+.controls__next {
+  transition: background 0.35s 0s;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url('../assets/icons/forward-step-solid_white.svg') 50% 50%  no-repeat;
+}
+
+.controls__volume {
+  position: absolute;
+  right: 0;
+  transition: background 0.35s 0s;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url('../assets/icons/volume-high-solid_white.svg') 50% 50%  no-repeat;
+}
+
+#volume-bar{
+  appearance: none;
+  width: 60px;
+  height: 10px;
+  position: absolute;
+  right: -15px;
+  bottom: 60px;
+  transform: rotate(-90deg);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid rgb(85, 4, 122);
+  cursor: pointer;
+}
+
+#volume-bar::-webkit-slider-thumb{
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: rgb(85, 4, 122);
+  box-shadow: -85px 0 0px 85px rgb(85, 4, 122);
+  cursor: pointer;
+}
+
+footer {
+  position: relative;
+  z-index: 5;
+  color: #fff;
+}
+.footer__container{
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 125%; /* 20/16 */
+}
+
+.footer__container > a{
+  transition: color 0.35s;
+}
+
+
+@media (max-width: 767.97px){
+  .player{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 399.97px) {
+  .footer__container{
+    font-size: 100%;
+  }
+}
+
+._hidden{
+  opacity: 0;
+}
+
+._pause {
+  transition: background 0.35s 0s;
+  background: url('../assets/icons/circle-pause-solid_white.svg') 50% 50%  no-repeat;
+}
+
+@media (hover: hover) {
+  .controls__prev:hover{
+    background: url('../assets/icons/backward-step-solid.svg') 50% 50% no-repeat;
+  }
+  .controls__play:hover {
+    background: url('../assets/icons/circle-play-solid.svg') 50% 50% no-repeat;
+  }
+  .controls__next:hover{
+    background: url('../assets/icons/forward-step-solid.svg') 50% 50% no-repeat;
+  }
+  .controls__volume:hover{
+    background: url('../assets/icons/volume-high-solid.svg') 50% 50%  no-repeat;
+  }
+  ._pause:hover{
+    background: url('../assets/icons/circle-pause-solid.svg') 50% 50%  no-repeat;
+  }
+  .footer__container > a:hover{
+    color:rgb(85, 4, 122);
+  }
+
+}
